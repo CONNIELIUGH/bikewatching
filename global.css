@@ -7,5 +7,69 @@ body {
     box-sizing: border-box;
     margin: auto;
     padding: 1em;
+}
+header{
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 1em;
+    align-items: baseline;
+
+}
+body header label{
+    margin-left: auto;
+
+}
+  
+time, em{
+    display: block;
+}
+
+em { 
+    color: #777;
+    font-style: italic;
+}
+
+
+.legend > div::before {
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
+    --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+    );
+    fill: var(--color);
   }
   
+  /* Legend container */
+  .legend {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Larger gap between label and items */
+    margin-block: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Label on the left */
+  .legend-label {
+    color: gray;
+    font-weight: bold;
+  }
+  
+  /* Each legend item with swatch and label */
+  .legend > div {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem; /* Small gap between swatch and label */
+  }
+  
+  /* Swatch box */
+  .legend > div::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: var(--color);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
